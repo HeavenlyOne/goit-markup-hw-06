@@ -1,0 +1,67 @@
+textarea {
+    resize: none;
+}
+.form {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    outline: 2px solid orange;
+}
+.form-field {
+    display: flex;
+    flex-direction: column;
+    /* outline: 1px solid blueviolet; */
+    margin-bottom: 20px;
+}
+/* За замовченням поля - строчні елементи, щоб поле займало усю строку це можна зробити або флексом, або так:
+.form-field input {
+    width: 100%;
+} */
+.form-field input {
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #2a2a2a;
+    font-size: 20px;
+}
+.form-field label {
+    margin-bottom: 5px;
+}
+.form-field input::placeholder {
+    color: #ccc;
+}
+.group {
+    margin-bottom: 20px;
+}
+.group-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.topic-options,
+.exp-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.topic-options li {
+    display: flex;
+    align-items: center;
+}
+/* Чекбокси погано стилізуються за замовчанням і є великі розбіжності у різниї браузерах */
+.topic-options input[type="checkbox"] {
+    /* width: 20px;
+    height: 20px; */
+}
+.topic-options label {
+    font-style: 20px;
+    margin-left: 10px;
+}
+.form-field .date {
+    border-width: 2px;
+    border-radius: 4px;
+    padding: 20px 40px;
+}
+.comment {
+    padding: 8px;
+}

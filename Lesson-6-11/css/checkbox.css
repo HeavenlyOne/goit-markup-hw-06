@@ -1,0 +1,44 @@
+/* display: none; приховує елемент не лише візуально, а й взагалі від усього: скрінрідеров, клави, миші і т.д
+ */
+ li {
+    margin-bottom: 10px;
+    list-style: none;
+ }
+.checkbox {
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    /* Вбиває всі стилі від браузера  */
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 8px;
+    width: 16px;
+    height: 15px;
+    border: 2px solid #2a2a2a;
+    border-radius: 4px;
+    transition: transform 250ms linear;
+}
+.checkbox:checked + .icon {
+    transform: scale(1.2);
+    border-color: orange;
+    background-color: orange;
+    background-image: url(../images/icon-check.svg);
+    background-size: contain;
+    background-origin: border-box;
+}
+.name {
+    transition: transform 250ms linear;
+}
+.checkbox:checked ~ .name {
+    transform: translateX(20px);
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <form class="js-speaker-form form" autocomplete="off">
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Микола Тарасович" autofocus>
+        </div>
+        
+<!-- В плейсхолдер краще ставити приклад, але ні в якому разі не вказівку, що туди треба писати, по при наборі у полі ця підказка зникне і можна забути, що від тебе там хочуть -->
+        <div class="form-field">
+            <label for="tel">Telephone</label>
+            <input type="tel" name="tel" id="tel">
+        </div>
+
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" autocomplete="on">
+        </div>
+<!-- Атрибут name у чекбоксах має бути один, що при відправці на сервер значеня обєднувалися в одну групу -->
+        <div role="group" class="group">
+            <h2 class="group-title">Research theme</h2>
+            <ul class="topic-options">
+                <li>
+                    <input type="checkbox" name="topic" id="html" value="html">
+                    <label for="html">HTML</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="topic" id="css" value="css">
+                    <label for="css">CSS</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="topic" id="js" value="js" checked>
+                    <label for="js">JS</label>
+                </li>
+            </ul>         
+        </div>
+<!-- Атрибут name у радіокнопок має бути один для групи обовязково, бо інакше браузер буде сприймати кожен імпут, як окрему групу і можна бути натицяти вибір усіх кнопок -->
+        <div role="group" class="group">
+            <h2 class="group-title">Your experiece level</h2>
+            <ul class="exp-options">
+                <li>
+                    <input type="radio" name="level" value="junior" id="junior">
+                    <label for="junior">Junior</label>
+                </li>
+                <li>
+                    <input type="radio" name="level" value="middle" id="middle">
+                    <label for="middle">Middle</label>
+                </li>
+                <li>
+                    <input type="radio" name="level" value="senior" id="senior" checked>
+                    <label for="senior">Senior</label>
+                </li>
+            </ul> 
+        </div>
+        <div class="form-field">
+            <label for="date">Date of speach</label>
+            <input class="date" type="datetime-local" name="date" id="date" min="2023-08-24T22:00" max="2023-08-28T23:00">
+        </div>
+        <div class="form-field">
+            <label for="pdf">Load your research</label>
+            <input type="file" name="pdf" id="pdf">
+        </div>
+        <div class="form-field">
+            <label for="comment">Leave your comment</label>
+            <textarea class="comment" name="comment" id="comment" rows="10"></textarea>
+        </div>
+        <div class="form-field">
+            <input type="checkbox" name="policy" id="policy">
+            <label for="policy">Agreed for all</label>
+        </div>
+   
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        (() => {
+            document
+                .querySelector('.js-speaker-form')
+                .addEventListener('submit', e => {
+                    e.preventDefault();
+
+                    new FormDate(e.currentTarget).forEach((value, name) =>
+                        console.log(`${name}: ${value}`),
+                    );
+                    e.currentTarget.reset();
+                });
+        })();
+    </script>
+</body>
+</html>
